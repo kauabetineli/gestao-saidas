@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+        "navbar navbar"
+        "sidebar main";
+    grid-template-columns: 384px 1fr;
+    grid-template-rows: 114px 1fr;
+    height: 100vh;
+}
+
+.navbar {
+    grid-area: navbar;
+    height: 114px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 7px 31px -6px rgba(0,0,0,0.25);
+}
+
+nav img{
+    padding-top: 47px;
+    padding-left: 11px;
+}
+
+.navbar-profile-icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    margin-right: 54px;
+    margin-top: 22px;
+    overflow: hidden;
+}
+
+.navbar-profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    width: 384px;
+    height: 100vh;
+    background-color: #E8E8E8;
+}
+
+.sidebar-menu {
+    color: #434343;
+    padding-top: 28px;
+    padding-left: 15px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+}
+
+.sidebar-menu h1 {
+    padding-bottom: 6px;
+}
+
+main {
+    display: grid;
+    flex-direction: column;
+    grid-area: main;
+    /* padding: 20px; */
+    justify-content: center;
+    margin-top: 67px;
+    width: 100%;
+}
+
+.main-text {
+    margin: 0 auto;
+   
+}
+
+.main-container-button {
+    display: flex;
+    column-gap: 76px;
+    justify-content: center;
+    margin-bottom: 400px;
+    
+}
+
+.main-button {
+    width: 275px;
+    height: 275px;
+    border-radius: 10px;
+    background-color: #E8E8E8;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#icon-person:hover{
+    cursor: pointer;
+    background-color: rgb(49, 255, 128);
+}
+
+#icon-redo:hover{
+    cursor: pointer;
+    background-color: rgb(223, 62, 255);
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0;
+  transform: scale(2.25);
+  /* color: #1811DE; */
+}
+
+.main-button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    color: #434343;
+}
+
