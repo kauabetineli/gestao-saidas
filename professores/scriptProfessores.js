@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     let res = document.getElementById("listagem")
     res.innerHTML = "Buscando dados..."
-    // n-point https://www.npoint.io/docs/e406bcc22a2e7636e2e8
-    fetch('https://api.npoint.io/e406bcc22a2e7636e2e8')
+    // n-point https://www.npoint.io/docs/f08bccd6086c1ae4a90d
+    fetch('https://api.npoint.io/f08bccd6086c1ae4a90d/')
     .then(response => response.json())
     .then(data => {
         let tabela = `
@@ -15,26 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         <th>Matrícula</th>
                         <th>Telefone</th>
                         <th>Email</th>
-                        <th>&nbsp</th>
                     </tr>
                 </thead>
                 <tbody>
         `;
 
-        data.forEach(aluno => {
+        data.forEach(professor => {
             tabela += `
                 <tr>
-                    <td>${aluno.codAluno}</td>
-                    <td>${aluno.nome}</td>
-                    <td>${aluno.sobrenome}</td>
-                    <td>${aluno.matricula}</td>
-                    <td>${aluno.telefone}</td>
-                    <td>${aluno.email}</td>
-                    <td>
-                        <a href="consultar.html?codAluno=${aluno.codAluno}" target="_blank" class="btn-consultar">
-                                <span class="material-symbols-outlined" id="search-alunos" style="color: #0744B8; font-size: 100%;">search</span>
-                        </a>
-                    </td>
+                    <td>${professor.codProfessor}</td>
+                    <td>${professor.nome}</td>
+                    <td>${professor.sobrenome}</td>
+                    <td>${professor.matricula}</td>
+                    <td>${professor.telefone}</td>
+                    <td>${professor.email}</td>
                 </tr>
             `;
         });

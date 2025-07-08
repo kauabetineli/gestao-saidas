@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <th>Matrícula</th>
                         <th>Telefone</th>
                         <th>Email</th>
-                        <th>&nbsp</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,11 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${aluno.matricula}</td>
                     <td>${aluno.telefone}</td>
                     <td>${aluno.email}</td>
-                    <td>
-                        <a href="consultar.html?codAluno=${aluno.codAluno}" target="_blank" class="btn-consultar">
-                                <span class="material-symbols-outlined" id="search-alunos" style="color: #0744B8; font-size: 100%;">search</span>
-                        </a>
-                    </td>
                 </tr>
             `;
         });
@@ -42,7 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
         tabela += `</tbody></table>`;
         res.innerHTML = tabela;
     })
+});
 
-
-    // alert("DOM carregado com DOMContentLoaded!");
-  });

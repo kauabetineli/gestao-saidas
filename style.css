@@ -110,9 +110,25 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-#icon-person:hover{
+.main-button:hover {
+    background-color: #d3d3d3;
+}
+
+.main-button:hover .main-button-content h3 {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+
+/* .main-button:hover .main-button-content h3, 
+.main-button:hover .main-button-content span {
+    color: white;
+} */
+
+/* #icon-person:hover{
     cursor: pointer;
     background-color: rgb(49, 255, 128);
 }
@@ -120,7 +136,7 @@ main {
 #icon-redo:hover{
     cursor: pointer;
     background-color: rgb(223, 62, 255);
-}
+} */
 
 
 .material-symbols-outlined {
@@ -207,7 +223,7 @@ label {
     color: #666;
 }
 
-input, button {
+input, button, textarea, select {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
@@ -215,6 +231,19 @@ input, button {
     border-radius: 25px;
     font-size: 16px;
 }
+
+select {
+    cursor: pointer;
+}
+
+/* select:hover { */
+    /* background-color: rgb(231, 231, 231); */
+    /* background-color: #3d6ec9; */
+/* } */
+
+/* select:focus {
+    background-color: white;
+} */
 
 button {
     margin-left: 115px;
@@ -240,4 +269,14 @@ button:hover {
     width: 50px;
     margin-left: 30px;
     margin-bottom: 25px;
+    cursor: pointer;
 }
+
+
+/* botao da consulta */
+.consulta {
+    padding: 0px;
+    width: 100%;
+    margin-left: 0px;
+}
+

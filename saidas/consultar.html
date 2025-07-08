@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar</title>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./alunos.css">
-    <script src="scriptAlunos.js" defer></script>
+    <script src="consultar.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=block" rel="stylesheet" />    
 </head>
 <body>
@@ -26,7 +25,7 @@
         <aside class="sidebar">
             <div class="sidebar-menu">
                 <h1><a href="../index.html">Voltar ao menu</a></h1>
-                <h3><a href="./alunos.html">Listar</a></h3>
+                <h3><a href="./saidas.html">Fila Virtual</a></h3>
                 <h3><a href="./cadastro.html">Cadastrar</a></h3>
                 <h3><a href="./consultar.html">Consultar</a></h3>
             </div>
@@ -35,11 +34,14 @@
         <main>
 
             <div class="main-text">
-                <h1>Cadastro de Aluno</h1>
+                <h1>Consulta de Aluno</h1>
                 <br><br>
             </div>
 
             <form id="cadastro">
+                <label for="nome">Código do Aluno</label>
+                <input type="text" id="nome" name="nome" placeholder="Insira o código para buscar o aluno">
+
                 <label for="nome">Nome do Aluno</label>
                 <input type="text" id="nome" name="nome">
 
@@ -54,7 +56,10 @@
                 
                 <br>
                 <br><br>
-                <button type="submit">Cadastrar</button>
+                <div class="button-container">
+                    <button type="submit">Atualizar</button>
+                    <img src="../images/bin-windows.png" alt="Excluir">
+                </div>
             </form>
 
             
