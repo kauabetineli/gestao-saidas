@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   data.forEach(aluno => {
                   let option = document.createElement("option");
                   option.value = aluno.codAluno;
-                  option.textContent = `${aluno.codAluno} - ${aluno.nome} ${aluno.sobrenome}`;
+                  option.textContent = `${aluno.nome} ${aluno.sobrenome}`;
                   selectAluno.appendChild(option);
             });
       })
@@ -37,22 +37,47 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch('http://localhost:8081/professor')
           .then(response => response.json())
           .then(data => {
-                  let selectProfessor = document.getElementById("professor")
-                  data.forEach(professor => {
-                        let option = document.createElement("option")
-                        option.value = professor.codProfessor
-                        option.textContent = `${professor.codProfessor} - ${professor.nome} ${professor.sobrenome}`
-                        selectProfessor.appendChild(option)
-                  })
+                let selectProfessor = document.getElementById("professor")
+                data.forEach(professor => {
+                    let option = document.createElement("option")
+                    option.value = professor.codProfessor
+                    option.textContent = `${professor.nome} ${professor.sobrenome}`
+                    selectProfessor.appendChild(option)
+                })
           })
 
   });
 
 btnCadastrar.addEventListener("click", () => {
+    const alunoSelect = document.getElementById("select-alunos");
+    const professorSelect = document.getElementById("select-professores");
 
     const saida = {
-        motivo: document.getElementById("motivo").value
-
+        dataSolicitacao: new Date(),
+        motivo: document.getElementById("motivo").value,
+        localDestino: document.getElementById("local").value,
+        status: "PENDENTE",
+        nomeAluno: alunoSelect.options[alunoSelect.selectedIndex].text,
+        nomeProfessor: professorSelect.options[professorSelect.selectedIndex].text,
     }
+
+    fetch(`http://localhost:8081/saida`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(saida)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Saída cadastrada com sucesso!");
+        } else {
+            throw new Error("Erro ao cadastrar saída.");
+        }
+    })
+    .catch(error => {
+        console.error("Erro:", error);
+        alert("Ocorreu um erro ao cadastrar a saída.");
+    });
 
 })
