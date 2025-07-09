@@ -1,10 +1,10 @@
-package br.senai.sc.app;
+package com.system.ControleSaida;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class ControleSaidaApplicationTests {
 
 	@Test
 	void contextLoads() {

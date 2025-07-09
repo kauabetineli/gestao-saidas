@@ -1,7 +1,6 @@
-package br.senai.sc.app.repository;
+package com.system.ControleSaida.repository;
 
-import br.senai.sc.app.entity.Aluno;
-import br.senai.sc.app.entity.Professor;
+import com.system.ControleSaida.model.Professor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {

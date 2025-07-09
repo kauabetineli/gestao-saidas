@@ -2,7 +2,7 @@ let entradaNome = document.getElementById("buscaNome")
 let res = document.getElementById("listagem")
 
 entradaNome.addEventListener("input", () => {
-	fetch(`http://localhost:8081/alunos/buscar?nome=${encodeURIComponent(entradaNome.value)}`)
+	fetch(`http://localhost:8081/aluno/buscar?nome=${encodeURIComponent(entradaNome.value)}`)
 	.then(response => response.json())
 	.then(data => {
 		let tabela = `
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     res.innerHTML = "Buscando dados..."
     // n-point https://www.npoint.io/docs/e406bcc22a2e7636e2e8
     // fetch('https://api.npoint.io/e406bcc22a2e7636e2e8')
-	fetch('http://localhost:8081/alunos')
+	fetch('http://localhost:8081/aluno')
     .then(response => response.json())
     .then(data => {
         let tabela = `

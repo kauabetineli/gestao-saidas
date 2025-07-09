@@ -1,13 +1,13 @@
-package br.senai.sc.app;
+package com.system.ControleSaida;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ControleSaidaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ControleSaidaApplication.class, args);
 	}
 
 }

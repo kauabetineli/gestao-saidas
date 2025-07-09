@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	if (codAluno) {
 		document.getElementById("codigo").value = codAluno;
-		fetch(`http://localhost:8081/alunos/buscar/${codAluno}`)
+		fetch(`http://localhost:8081/aluno/${codAluno}`)
 		.then(response => response.json())
 		.then(data => {
 			document.getElementById("matricula").value = data.matricula
@@ -28,7 +28,7 @@ btnExcluir.addEventListener("click", () => {
 		return;
 	}
 
-	fetch(`http://localhost:8081/alunos/${codAluno}`, {
+	fetch(`http://localhost:8081/aluno/${codAluno}`, {
 		method: "DELETE"
 	})
 	.then(response => {
