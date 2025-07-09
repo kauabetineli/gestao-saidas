@@ -258,22 +258,34 @@ button:hover {
     background-color: #3d6ec9;
 }
 
+/* botao atualizar + icone da lixeira */
 .button-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* icone da lixeira */
 .button-container img {
     height: 100%;
     width: 50px;
     margin-left: 30px;
     margin-bottom: 25px;
     cursor: pointer;
+	transition: transform 0.8s ease;
+}
+
+/* icone da lixeira */
+.button-container img:hover {
+	transform: scale(1.2) rotate(360deg);
+	/* filter: brightness(1.1); */
+	/* background-color: rgb(255, 255, 255); */
+	/* border-radius: 16px; */
 }
 
 
 /* botao da consulta */
+
 .consulta {
     padding: 0px;
     width: 100%;
