@@ -1,5 +1,6 @@
 package com.system.ControleSaida.controller;
 
+import com.system.ControleSaida.model.Aluno;
 import com.system.ControleSaida.model.Professor;
 import com.system.ControleSaida.repository.ProfessorRepository;
 import org.springframework.http.HttpStatus;
@@ -32,11 +33,35 @@ public class ProfessorController {
         }
     }
 
+    @PostMapping("/lote")
+    public ResponseEntity<List<Professor>> cadastrarProfessorLote(@RequestBody List<Professor> listaNovosProfessores){
+        try{
+            List<Professor> listaDadosProfessor = repositorioProfessor.saveAll(listaNovosProfessores);
+            System.out.println(listaDadosProfessor.toString());
+            return ResponseEntity.ok(listaDadosProfessor);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @GetMapping
     public ResponseEntity<List<Professor>> listarProfessor(){
         try{
             List<Professor> dadosProfessor = repositorioProfessor.findAll();
             dadosProfessor.forEach(dados -> System.out.println(dados.toString()));
+            return ResponseEntity.ok(dadosProfessor);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Professor>> listarProfessorPorNome(@RequestParam String nome){
+        try{
+            List<Professor> dadosProfessor = repositorioProfessor.findByNomeContainingIgnoreCaseOrSobrenomeContainingIgnoreCaseOrderByNomeAsc(nome, nome);
+//            dadosAluno.forEach(dados -> System.out.println(dados.toString()));
             return ResponseEntity.ok(dadosProfessor);
         }catch (Exception e){
             e.printStackTrace();
@@ -84,7 +109,7 @@ public class ProfessorController {
 
             if(professor.isPresent()){
                 Professor prof = professor.get();
-                prof.setNome(prof.getNome());
+                prof.setNome(professorAtualizado.getNome());
                 prof.setSobrenome(professorAtualizado.getSobrenome());
                 prof.setMatricula(professorAtualizado.getMatricula());
                 prof.setTelefone(professorAtualizado.getTelefone());

@@ -1,6 +1,11 @@
+let btnCadastrar = document.getElementById("btn-cadastrar")
+
 document.addEventListener("DOMContentLoaded", () => {
-      let alunos = document.getElementById("select-alunos");
-      let professores = document.getElementById("select-professores");
+        let dataAtual = document.getElementById("data")
+        dataAtual.valueAsDate = new Date()
+        
+        let alunos = document.getElementById("select-alunos");
+        let professores = document.getElementById("select-professores");
   
       alunos.innerHTML = `
           <select id="aluno">
@@ -8,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </select>
       `;
   
-      fetch('http://localhost:8081/alunos')
+      fetch('http://localhost:8081/aluno')
           .then(response => response.json())
           .then(data => {
                   let selectAluno = document.getElementById("aluno");
@@ -29,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </select>
       `
 
-      fetch('https://api.npoint.io/f08bccd6086c1ae4a90d')
+      fetch('http://localhost:8081/professor')
           .then(response => response.json())
           .then(data => {
                   let selectProfessor = document.getElementById("professor")
@@ -42,3 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
           })
 
   });
+
+btnCadastrar.addEventListener("click", () => {
+
+    const saida = {
+        motivo: document.getElementById("motivo").value
+
+    }
+
+})

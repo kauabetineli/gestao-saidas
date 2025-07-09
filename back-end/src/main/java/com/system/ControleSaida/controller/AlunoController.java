@@ -47,7 +47,7 @@ public class AlunoController {
     @GetMapping
     public ResponseEntity<List<Aluno>> listarAluno(){
         try{
-            List<Aluno> dadosAluno = repositorioAluno.findAllByOrderByNome();
+            List<Aluno> dadosAluno = repositorioAluno.findByOrderByNome();
             dadosAluno.forEach(dados -> System.out.println(dados.toString()));
             return ResponseEntity.ok(dadosAluno);
         }catch (Exception e){
@@ -59,7 +59,7 @@ public class AlunoController {
     @GetMapping("/buscar")
     public ResponseEntity<List<Aluno>> listarAlunoPorNome(@RequestParam String nome){
         try{
-            List<Aluno> dadosAluno = repositorioAluno.findByNomeContainingIgnoreCaseOrSobrenomeContainingIgnoreCase(nome, nome);
+            List<Aluno> dadosAluno = repositorioAluno.findByNomeContainingIgnoreCaseOrSobrenomeContainingIgnoreCaseOrderByNomeAsc(nome, nome);
 //            dadosAluno.forEach(dados -> System.out.println(dados.toString()));
             return ResponseEntity.ok(dadosAluno);
         }catch (Exception e){
@@ -108,7 +108,7 @@ public class AlunoController {
 
             if(aluno.isPresent()){
                 Aluno alun = aluno.get();
-                alun.setNome(alun.getNome());
+                alun.setNome(alunoAtualizado.getNome());
                 alun.setSobrenome(alunoAtualizado.getSobrenome());
                 alun.setMatricula(alunoAtualizado.getMatricula());
                 alun.setTelefone(alunoAtualizado.getTelefone());

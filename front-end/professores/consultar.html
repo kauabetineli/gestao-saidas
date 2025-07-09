@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar</title>
     <link rel="stylesheet" href="../style.css">
-    <script src="scriptAlunos.js" defer></script>
+    <script src="./consultar.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=block" rel="stylesheet" />    
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <h1><a href="../index.html">Voltar ao menu</a></h1>
                 <h3><a href="./professores.html">Listar</a></h3>
                 <h3><a href="./cadastro.html">Cadastrar</a></h3>
-                <h3><a href="./consultar.html">Consultar</a></h3>
+                <!-- <h3><a href="./consultar.html">Consultar</a></h3> -->
             </div>
         </aside>
     
@@ -39,16 +39,16 @@
             </div>
 
             <form id="cadastro">
-                <label for="nome">Código do Professor</label>
-                <input type="text" id="nome" name="nome" placeholder="Insira o código para buscar o professor">
+                <label for="nome">Código do Aluno</label>
+                <input type="text" id="codigo" name="codigo" readonly>
 
 				<label for="matricula">Matricula</label>
                 <input type="text" id="matricula" name="matricula">
 
-                <label for="nome">Nome do Professor</label>
+                <label for="nome">Nome do Aluno</label>
                 <input type="text" id="nome" name="nome">
 
-                <label for="sobrenome">Sobrenome do Professor</label>
+                <label for="sobrenome">Sobrenome do Aluno</label>
                 <input type="text" id="sobrenome" name="sobrenome">
 
                 <label for="telefone">Telefone</label>
@@ -60,8 +60,8 @@
                 <br>
                 <br><br>
                 <div class="button-container">
-                    <button type="submit">Atualizar</button>
-                    <img src="../images/bin-windows.png" alt="Excluir">
+                    <button type="button" id="btn-atualizar">Atualizar</button>
+                    <img src="../images/bin-windows.png" id="btn-excluir" alt="Excluir">
                 </div>
             </form>
 

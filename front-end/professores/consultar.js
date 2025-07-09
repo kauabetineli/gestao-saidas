@@ -3,11 +3,11 @@ let btnAtualizar = document.getElementById("btn-atualizar")
 
 document.addEventListener("DOMContentLoaded", () => {
 	const urlParams = new URLSearchParams(window.location.search);
-	const codigo = urlParams.get("codAluno");
+	const codigo = urlParams.get("codProfessor");
 
 	if (codigo) {
 		document.getElementById("codigo").value = codigo;
-		fetch(`http://localhost:8081/aluno/${codigo}`)
+		fetch(`http://localhost:8081/professor/${codigo}`)
 		.then(response => response.json())
 		.then(data => {
 			document.getElementById("matricula").value = data.matricula
@@ -20,22 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 btnExcluir.addEventListener("click", () => {
-	let codAluno = Number(document.getElementById("codigo").value)
+	let codProfessor = Number(document.getElementById("codigo").value)
 
 	
-	console.log("Codigo do aluno: " + codAluno)
+	console.log("Codigo do profesosr: " + codProfessor)
 
-	if (!confirm("Tem certeza que deseja excluir este aluno?")) {
+	if (!confirm("Tem certeza que deseja excluir este professor?")) {
 		return;
 	}
 
-	fetch(`http://localhost:8081/aluno/${codAluno}`, {
+	fetch(`http://localhost:8081/professor/${codProfessor}`, {
 		method: "DELETE"
 	})
 	.then(response => {
 		if (response.ok) {
-			alert("Aluno excluído com sucesso!");
-			window.location.href = "/alunos/alunos.html";
+			alert("Professor excluído com sucesso!");
+			window.location.href = "/professor/professor.html";
 		} else {
 			alert("Erro ao excluir aluno.");
 		}
@@ -49,8 +49,8 @@ btnExcluir.addEventListener("click", () => {
 btnAtualizar.addEventListener("click", () => {
 	let codigo = document.getElementById("codigo").value
 
-	const aluno = {
-		codAluno: document.getElementById("codigo").value,
+	const professor = {
+		codProfessor: document.getElementById("codigo").value,
             matricula: document.getElementById("matricula").value,
             nome: document.getElementById("nome").value,
             sobrenome: document.getElementById("sobrenome").value,
@@ -58,19 +58,19 @@ btnAtualizar.addEventListener("click", () => {
             email: document.getElementById("email").value
       }
 
-	fetch(`http://localhost:8081/aluno/${codigo}`, {
+	fetch(`http://localhost:8081/professor/${codigo}`, {
             method: "PUT",
             headers: {
                   "Content-Type": "application/json"
             },
-            body: JSON.stringify(aluno)
+            body: JSON.stringify(professor)
       })
 	.then(response => response.json())
       .then(data => {
-            console.log("Aluno atualizado com sucesso:", data);
-            alert("Aluno atualizado com sucesso!")
+            console.log("Professor atualizado com sucesso:", data);
+            alert("Professor atualizado com sucesso!")
       })
       .catch(error => {
-            console.error("Erro ao atualizar aluno:", error);
+            console.error("Erro ao atualizar professor:", error);
       });
 })

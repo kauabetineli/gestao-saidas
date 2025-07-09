@@ -2,7 +2,7 @@ let btnCadastrar = document.getElementById("btn-cadastrar")
 
 btnCadastrar.addEventListener("click", () => {
 
-      const aluno = {
+      const professor = {
             matricula: document.getElementById("matricula").value,
             nome: document.getElementById("nome").value,
             sobrenome: document.getElementById("sobrenome").value,
@@ -10,23 +10,23 @@ btnCadastrar.addEventListener("click", () => {
             email: document.getElementById("email").value
       }
 
-      fetch(`http://localhost:8081/aluno`, {
+      fetch(`http://localhost:8081/professor`, {
             method: "POST",
             headers: {
                   "Content-Type": "application/json"
             },
-            body: JSON.stringify(aluno)
+            body: JSON.stringify(professor)
       })
 
       .then(response => response.json())
       .then(data => {
             // let status = document.getElementById("status-cadastro")
-            console.log("Aluno cadastrado com sucesso:", data);
+            console.log("Professor cadastrado com sucesso:", data);
             // status.innerHTML = `<p> Aluno cadastrado com sucesso! </p>`
-            alert("Aluno cadastrado com sucesso!")
+            alert("Professor cadastrado com sucesso!")
       })
       .catch(error => {
-            console.error("Erro ao cadastrar aluno:", error);
+            console.error("Erro ao cadastrar professor:", error);
       });
 
 })

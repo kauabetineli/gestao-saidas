@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar</title>
     <link rel="stylesheet" href="../style.css">
-    <script src="scriptAlunos.js" defer></script>
+    <script src="cadastro.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=block" rel="stylesheet" />    
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <h1><a href="../index.html">Voltar ao menu</a></h1>
                 <h3><a href="./professores.html">Listar</a></h3>
                 <h3><a href="./cadastro.html">Cadastrar</a></h3>
-                <h3><a href="./consultar.html">Consultar</a></h3>
+                <!-- <h3><a href="./consultar.html">Consultar</a></h3> -->
             </div>
         </aside>
     
@@ -44,10 +44,10 @@
                 <input type="text" id="matricula" name="matricula">
 				
                 <label for="nome">Nome do Professor</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite o primeiro nome">
+                <input type="text" id="nome" name="nome">
 
                 <label for="sobrenome">Sobrenome do Professor</label>
-                <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome">
+                <input type="text" id="sobrenome" name="sobrenome">
 
                 <label for="telefone">Telefone</label>
                 <input type="text" id="telefone" name="telefone">
@@ -57,7 +57,8 @@
                 
                 <br>
                 <br><br>
-                <button type="submit">Cadastrar</button>
+                <button type="button" id="btn-cadastrar">Cadastrar</button>
+                <!-- <div id="status-cadastro"></div> -->
             </form>
 
             
