@@ -27,7 +27,7 @@
                 <h1><a href="../index.html">Voltar ao menu</a></h1>
                 <h3><a href="./alunos.html">Listar</a></h3>
                 <h3><a href="./cadastro.html">Cadastrar</a></h3>
-                <h3><a href="./consultar.html">Consultar</a></h3>
+                <!-- <h3><a href="./consultar.html">Consultar</a></h3> -->
             </div>
         </aside>
     
@@ -40,7 +40,7 @@
 
             <form id="cadastro">
                 <label for="nome">Código do Aluno</label>
-                <input type="text" id="codigo" name="codigo" placeholder="Insira o código para buscar o aluno">
+                <input type="text" id="codigo" name="codigo" readonly>
 
 				<label for="matricula">Matricula</label>
                 <input type="text" id="matricula" name="matricula">
@@ -61,7 +61,7 @@
                 <br><br>
                 <div class="button-container">
                     <button type="submit">Atualizar</button>
-                    <img src="../images/bin-windows.png" alt="Excluir">
+                    <img src="../images/bin-windows.png" id="btn-excluir" alt="Excluir">
                 </div>
             </form>
 

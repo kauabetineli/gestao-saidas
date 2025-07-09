@@ -48,7 +48,8 @@ nav img{
 .sidebar {
     grid-area: sidebar;
     width: 384px;
-    height: 100vh;
+	height: 100%;
+    /* height: 300vh; */
     background-color: #E8E8E8;
 }
 
@@ -283,12 +284,19 @@ button:hover {
 	/* border-radius: 16px; */
 }
 
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
+}
+
+
 
 /* botao da consulta */
-
-.consulta {
+/* .consulta {
     padding: 0px;
     width: 100%;
     margin-left: 0px;
-}
-
+} */

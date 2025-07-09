@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </select>
       `;
   
-      fetch('https://api.npoint.io/e406bcc22a2e7636e2e8')
+      fetch('http://localhost:8081/alunos')
           .then(response => response.json())
           .then(data => {
                   let selectAluno = document.getElementById("aluno");
