@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -15,7 +16,7 @@ public class Saida {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codSaida;
 
-    private LocalDate dataSolicitacao;
+    private LocalDateTime dataSolicitacao;
     private LocalTime horaSaida;
     private LocalTime horaRetorno;
     @NotBlank
@@ -45,7 +46,7 @@ public class Saida {
 
     public Saida() { }
 
-    public Saida(Long codSaida, LocalDate dataSolicitacao, LocalTime horaSaida,
+    public Saida(Long codSaida, LocalDateTime dataSolicitacao, LocalTime horaSaida,
                  LocalTime horaRetorno, String motivo, String localDestino,
                  String status, String nomeAluno, String nomeProfessor,
                  Aluno aluno, Professor professor) {
@@ -85,11 +86,11 @@ public class Saida {
         this.codSaida = codSaida;
     }
 
-    public LocalDate getDataSolicitacao() {
+    public LocalDateTime getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(LocalDate dataSolicitacao) {
+    public void setDataSolicitacao(LocalDateTime dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 

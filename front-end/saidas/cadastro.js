@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   data.forEach(aluno => {
                   let option = document.createElement("option");
                   option.value = aluno.codAluno;
-                  option.textContent = `${aluno.nome} ${aluno.sobrenome}`;
+                  option.textContent = `${aluno.codAluno} - ${aluno.nome} ${aluno.sobrenome}`;
                   selectAluno.appendChild(option);
             });
       })
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 data.forEach(professor => {
                     let option = document.createElement("option")
                     option.value = professor.codProfessor
-                    option.textContent = `${professor.nome} ${professor.sobrenome}`
+                    option.textContent = `${professor.codProfessor} - ${professor.nome} ${professor.sobrenome}`
                     selectProfessor.appendChild(option)
                 })
           })
@@ -49,17 +49,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 btnCadastrar.addEventListener("click", () => {
-    const alunoSelect = document.getElementById("select-alunos");
-    const professorSelect = document.getElementById("select-professores");
+    // const { DateTime } = require('luxon')
+    const alunoSelect = Number(document.getElementById("aluno").value)
+    const professorSelect = Number(document.getElementById("professor").value)
+    const motivoInput = document.getElementById("motivo").value
+    const localDestinoInput = document.getElementById("local").value
+
+    // const localDateTime = DateTime.local().toFormat("yyyy-MM-dd'T'HH:mm:ss");
+    // const dataHoraAtual = new Date().toISOString()
 
     const saida = {
-        dataSolicitacao: new Date(),
-        motivo: document.getElementById("motivo").value,
-        localDestino: document.getElementById("local").value,
-        status: "PENDENTE",
-        nomeAluno: alunoSelect.options[alunoSelect.selectedIndex].text,
-        nomeProfessor: professorSelect.options[professorSelect.selectedIndex].text,
+        // dataSolicitacao: dataHoraAtual,
+        motivo: motivoInput,
+        localDestino: localDestinoInput,
+        aluno_cod: alunoSelect,
+        professor_cod: professorSelect
     }
+
+    console.log(saida)
 
     fetch(`http://localhost:8081/saida`, {
         method: "POST",

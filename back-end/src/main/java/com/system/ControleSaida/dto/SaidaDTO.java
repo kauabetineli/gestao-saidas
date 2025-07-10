@@ -1,13 +1,11 @@
 package com.system.ControleSaida.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class SaidaDTO {
 
-    private LocalDate dataSolicitacao;
+    private LocalDateTime dataSolicitacao;
     private LocalTime horaSaida;
     private LocalTime horaRetorno;
     private String motivo;
@@ -19,8 +17,7 @@ public class SaidaDTO {
     private Long professor_cod;
 
     public SaidaDTO() { }
-
-    public SaidaDTO(LocalDate dataSolicitacao, LocalTime horaSaida,
+    public SaidaDTO(LocalDateTime dataSolicitacao, LocalTime horaSaida,
                     LocalTime horaRetorno, String motivo, String localDestino,
                     String status, String nomeAluno, String nomeProfessor,
                     Long aluno_cod, Long professor_cod) {
@@ -35,6 +32,21 @@ public class SaidaDTO {
         this.aluno_cod = aluno_cod;
         this.professor_cod = professor_cod;
     }
+
+//    public SaidaDTO(LocalDate dataSolicitacao, String motivo, String localDestino, Long aluno_cod, Long professor_cod) {
+//        this.dataSolicitacao = dataSolicitacao;
+//        this.motivo = motivo;
+//        this.localDestino = localDestino;
+//        this.aluno_cod = aluno_cod;
+//        this.professor_cod = professor_cod;
+//
+//        this.status = "PENDENTE";
+//        this.horaSaida = null;
+//        this.horaRetorno = null;
+//        this.nomeAluno = null;
+//        this.nomeProfessor = null;
+//
+//    }
 
     @Override
     public String toString() {
@@ -52,11 +64,11 @@ public class SaidaDTO {
                 '}';
     }
 
-    public LocalDate getDataSolicitacao() {
+    public LocalDateTime getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(LocalDate dataSolicitacao) {
+    public void setDataSolicitacao(LocalDateTime dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 
