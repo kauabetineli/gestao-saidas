@@ -103,11 +103,12 @@ main {
 }
 
 .main-button {
-    width: 275px;
-    height: 275px;
-    border-radius: 10px;
-    background-color: #E8E8E8;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    /* background-color: #E8E8E8; */
+    background-color: #F4F4F4;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.15);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,7 +116,8 @@ main {
 }
 
 .main-button:hover {
-    background-color: #d3d3d3;
+    /* background-color: #d3d3d3; */
+    background-color: #C7E4E0;
 }
 
 .main-button:hover .main-button-content h3 {
@@ -302,20 +304,44 @@ button:hover {
 	transform: scale(2.5);
 }
 
-.col-data, .col-status {
-	max-width: 100px;
+.col-data {
+	width: 100px;
 }
 
 .col-status {
-	max-width: 140px;
+	width: 140px;
+}
+
+.col-local {
+    width: 135px;
 }
 
 .col-motivo {
-  max-width: 200px;           /* ajuste pra o valor que fizer sentido */
-  white-space: normal;        /* permite quebras de linha */
-  word-wrap: break-word;      /* quebra palavras longas no meio, se necessário */
-  /* ou use overflow-wrap: break-word; (equivalente moderno) */
+  width: 200px;
+  /* white-space: normal; */
+  /* word-wrap: break-word; */
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
 }
+
+.col-aluno, .col-aluno {
+    width: 100px;
+}
+
+.col-professor, .col-aluno {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;     
+    white-space: nowrap;         
+}
+
+/* .col-aluno, .col-aluno {
+    width: 200px;
+}
+
+.col-local {
+    width: 150px;
+} */
 
 
 

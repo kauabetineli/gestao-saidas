@@ -40,9 +40,9 @@ function listar() {
                         <th class="col-data">Solicitação</th>
                         <th class="col-motivo">Motivo</th>
                         <th class="col-status">Status</th>
-                        <th>Destino</th>
-                        <th>Aluno</th>
-                        <th>Professor</th>
+                        <th class="col-local">Destino</th>
+                        <th class="col-aluno">Aluno</th>
+                        <th class="col-professor">Professor</th>
                         <th>&nbsp</th>
                     </tr>
                 </thead>
@@ -68,6 +68,7 @@ function listar() {
         <span class="material-symbols-outlined finalizado" onclick="gerenciarSaida('FINALIZADO', ${saida.codSaida})" style="color: #FFA500; font-size: 80%; cursor: pointer; border: 1px solid #FFA500">redo</span>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		`;
+    
         } else {
           // para permitir ou negar
           botoes = `
@@ -82,9 +83,9 @@ function listar() {
 				<td class="col-data">${dataFormatada} ${hora}</td>
 				<td class="col-motivo">${saida.motivo}</td>
 				<td class="col-status">${saida.status}</td>
-				<td>${saida.localDestino}</td>
-				<td>${saida.nomeAluno}</td>
-				<td>${saida.nomeProfessor}</td>
+				<td class="col-local">${saida.localDestino}</td>
+				<td class="col-aluno">${saida.nomeAluno}</td>
+				<td class="col-professor">${saida.nomeProfessor}</td>
 				<td>
 					${botoes}
 					&nbsp&nbsp&nbsp&nbsp

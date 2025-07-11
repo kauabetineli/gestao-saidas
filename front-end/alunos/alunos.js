@@ -23,8 +23,8 @@ entradaNome.addEventListener("input", () => {
 	data.forEach(aluno => {
 		tabela += `
 			<tr>
-				<td>${aluno.codAluno}</td>
-				<td>${aluno.nome} ${aluno.sobrenome}</td>
+				<td class="alu-cod">${aluno.codAluno}</td>
+				<td class="col-aluno">${aluno.nome} ${aluno.sobrenome}</td>
 				<td>${aluno.matricula}</td>
 				<td>${aluno.telefone}</td>
 				<td>${aluno.email}</td>
