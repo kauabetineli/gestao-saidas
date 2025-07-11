@@ -11,7 +11,6 @@ entradaNome.addEventListener("input", () => {
 					<tr>
 						<th>Código</th>
 						<th>Nome</th>
-						<th>Sobrenome</th>
 						<th>Matrícula</th>
 						<th>Telefone</th>
 						<th>Email</th>
@@ -25,8 +24,7 @@ entradaNome.addEventListener("input", () => {
 		tabela += `
 			<tr>
 				<td>${aluno.codAluno}</td>
-				<td>${aluno.nome}</td>
-				<td>${aluno.sobrenome}</td>
+				<td>${aluno.nome} ${aluno.sobrenome}</td>
 				<td>${aluno.matricula}</td>
 				<td>${aluno.telefone}</td>
 				<td>${aluno.email}</td>
@@ -57,11 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th>Sobrenome</th>
                         <th>Matrícula</th>
                         <th>Telefone</th>
                         <th>Email</th>
-                        <th>&nbsp</th>
+						<th>&nbsp</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tabela += `
                 <tr>
                     <td>${aluno.codAluno}</td>
-                    <td>${aluno.nome}</td>
-                    <td>${aluno.sobrenome}</td>
+                    <td>${aluno.nome} ${aluno.sobrenome}</td>
                     <td>${aluno.matricula}</td>
                     <td>${aluno.telefone}</td>
                     <td>${aluno.email}</td>

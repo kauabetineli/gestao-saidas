@@ -168,6 +168,7 @@ main {
 
 table {
     width: 100%;
+	table-layout: auto;
     font-size: 20px;
     border-collapse: separate;
     border-spacing: 0 15px;
@@ -290,6 +291,26 @@ button:hover {
   'wght' 400,
   'GRAD' 0,
   'opsz' 20
+}
+
+.permitir, .negar, #search-alunos{
+	border-radius: 16px;
+	transition: 0.05s ease-in-out;
+}
+
+.permitir:hover, .negar:hover, #search-alunos:hover {
+	transform: scale(2.5);
+}
+
+.col-data {
+	max-width: 100px;
+}
+
+.col-motivo {
+  max-width: 200px;           /* ajuste pra o valor que fizer sentido */
+  white-space: normal;        /* permite quebras de linha */
+  word-wrap: break-word;      /* quebra palavras longas no meio, se necessário */
+  /* ou use overflow-wrap: break-word; (equivalente moderno) */
 }
 
 
