@@ -94,7 +94,7 @@ public class SaidaController {
     @GetMapping
     public ResponseEntity<List<Saida>> listarSaida(){
         try{
-            List<Saida> dadosSaida = repositorioSaida.findAll();
+            List<Saida> dadosSaida = repositorioSaida.findByStatusIsNotAndStatusIsNotOrderByStatusAscDataSolicitacaoAsc("NEGADO", "FINALIZADO");
             dadosSaida.forEach(dados -> System.out.println(dados.toString()));
             return ResponseEntity.ok(dadosSaida);
         }catch (Exception e){
@@ -131,6 +131,29 @@ public class SaidaController {
                 return ResponseEntity.notFound().build();
             }
         }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @PutMapping("/permissao/{id}")
+    public ResponseEntity<String> gerenciarAlteracaoDeStatus(@PathVariable Long id, @RequestBody String permissao){
+        try {
+            permissao = permissao.replace("\"", "");
+            Saida saida = repositorioSaida.findById(id)
+                    .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                            "Saida não encontrada!"));
+            saida.setStatus(permissao);
+
+            if (!permissao.equals("NEGADO")){
+
+            }
+
+
+            repositorioSaida.save(saida);
+
+            return ResponseEntity.ok(saida.getStatus());
+        } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

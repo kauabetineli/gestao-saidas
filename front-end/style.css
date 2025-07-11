@@ -293,17 +293,21 @@ button:hover {
   'opsz' 20
 }
 
-.permitir, .negar, #search-alunos{
+.permitir, .negar, .finalizado, #search-alunos{
 	border-radius: 16px;
 	transition: 0.05s ease-in-out;
 }
 
-.permitir:hover, .negar:hover, #search-alunos:hover {
+.permitir:hover, .negar:hover, .finalizado:hover, #search-alunos:hover {
 	transform: scale(2.5);
 }
 
-.col-data {
+.col-data, .col-status {
 	max-width: 100px;
+}
+
+.col-status {
+	max-width: 140px;
 }
 
 .col-motivo {
