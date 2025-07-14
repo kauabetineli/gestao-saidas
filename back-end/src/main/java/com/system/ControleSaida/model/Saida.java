@@ -1,5 +1,6 @@
 package com.system.ControleSaida.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -34,14 +35,14 @@ public class Saida {
     @ManyToOne
     @JoinColumn(name="aluno_cod",
             referencedColumnName = "codAluno", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Aluno aluno;
 
     // Relacionamento muitos para um entre Saida e Professor
     @ManyToOne
     @JoinColumn(name="professor_cod",
             referencedColumnName = "codProfessor", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Professor professor;
 
     public Saida() { }

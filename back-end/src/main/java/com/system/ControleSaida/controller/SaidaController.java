@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -146,9 +148,14 @@ public class SaidaController {
             saida.setStatus(permissao);
 
             if (!permissao.equals("NEGADO")){
-
+                if(permissao.equals("AGUARDANDO RETORNO")) {
+                    LocalTime agora = LocalTime.now().withNano(0);
+                    saida.setHoraSaida(agora);
+                } else if(permissao.equals("FINALIZADO")){
+                    LocalTime agora = LocalTime.now().withNano(0);
+                    saida.setHoraRetorno(agora);
+                }
             }
-
 
             repositorioSaida.save(saida);
 
@@ -201,21 +208,6 @@ public class SaidaController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-
-
-
-
-
-
-
-//        try{
-//            Saida dadosSaida = repositorioSaida.save(novoSai);
-//            System.out.println(dadosSaida.toString());
-//            return ResponseEntity.ok(dadosSaida);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-//        }
     }
 
 

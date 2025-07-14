@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatar</title>
+    <title>Gerout</title>
     <link rel="stylesheet" href="../style.css">
     <script src="consultar.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=block" rel="stylesheet" />    
@@ -43,39 +43,57 @@
                 <input type="text" id="codSaida" name="codSaida" placeholder="Insira o código para buscar a saída">
 
                 <label for="dataSolicitacao">Data da Solicitação</label>
-                <input type="text" id="dataSolicitacao" name="dataSolicitacao" readonly>
+                <input type="datetime" id="dataSolicitacao" name="dataSolicitacao" readonly>
 
                 <label for="horaSaida">Horário da Saída</label>
-                <input type="text" id="horaSaida" name="horaSaida">
+                <input type="time" id="horaSaida" name="horaSaida">
 
                 <label for="horaRetorno">Horário de Retorno</label>
-                <input type="text" id="horaRetorno" name="horaRetorno">
+                <input type="time" id="horaRetorno" name="horaRetorno">
 
                 <label for="motivo">Motivo</label>
-                <input type="text" id="motivo" name="motivo">
+                <textarea name="text" id="motivo"></textarea>
+                <!-- <input type="text" id="motivo" name="motivo"> -->
+
 
                 <label for="localDestino">Local de Destino</label>
-                <input type="text" id="localDestino" name="localDestino">
+                <!-- <input type="text" id="localDestino" name="localDestino"> -->
+                <select name="localDestino" id="localDestino">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="BANHEIRO">Banheiro</option>
+                    <option value="BIBLIOTECA">Biblioteca</option>
+                    <option value="COORDENAÇÃO">Coordenação</option>
+                    <option value="SALA">Sala</option>
+                </select>
 
                 <label for="status">Status</label>
-                <input type="text" id="status" name="status">
+                <select name="status" id="status">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="PENDENTE">PENDENTE</option>
+                    <option value="AGUARDANDO RETORNO">AGUARDANDO RETORNO</option>
+                    <option value="NEGADO">NEGADO</option>
+                    <option value="FINALIZADO">FINALIZADO</option>
+                </select>
                 
-                <label for="nomeAluno">Aluno</label>
-                <input type="text" id="nomeAluno" name="nomeAluno">
+                
+                <!-- <input type="text" id="status" name="status"> -->
+                
+                <label for="select-alunos">Aluno</label>
+                <div id="select-alunos"></div>
+                <!-- <input type="text" id="nomeAluno" name="nomeAluno"> -->
 
-                <label for="nomeProfessor">Professor</label>
-                <input type="text" id="nomeProfessor" name="nomeProfessor">
+                <label for="select-professores">Professor</label>
+                <div id="select-professores"></div>
+                <!-- <input type="text" id="nomeProfessor" name="nomeProfessor"> -->
 
                 <br>
                 <br><br>
                 <div class="button-container">
-                    <button type="submit">Atualizar</button>
-                    <img src="../images/bin-windows.png" alt="Excluir">
+                    <button type="button" id="btn-atualizar">Atualizar</button>
+                    <img src="../images/bin-windows.png" alt="Excluir" id="btn-excluir">
                 </div>
             </form>
-
-            
-            
+    
         </main>
     </div>
     
