@@ -105,6 +105,18 @@ public class SaidaController {
         }
     }
 
+    @GetMapping("/finalizadas")
+    public ResponseEntity<List<Saida>> listarSaidaAcabadas(){
+        try{
+            List<Saida> dadosSaida = repositorioSaida.findByStatusIsNotAndStatusIsNotOrderByDataSolicitacaoDesc("PENDENTE", "AGUARDANDO RETORNO");
+            dadosSaida.forEach(dados -> System.out.println(dados.toString()));
+            return ResponseEntity.ok(dadosSaida);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Saida> consultarSaida(@PathVariable Long id){
         try{
@@ -170,14 +182,27 @@ public class SaidaController {
     public ResponseEntity<Saida> atualizarSaida(@PathVariable Long id, @RequestBody SaidaDTO novaSaidaDTO){
         Saida novoSai = new Saida();
 
-        novoSai.setDataSolicitacao(novaSaidaDTO.getDataSolicitacao());
-        novoSai.setHoraSaida(novaSaidaDTO.getHoraSaida());
-        novoSai.setHoraRetorno(novaSaidaDTO.getHoraRetorno());
-        novoSai.setMotivo(novaSaidaDTO.getMotivo());
-        novoSai.setLocalDestino(novaSaidaDTO.getLocalDestino());
-        novoSai.setStatus(novaSaidaDTO.getStatus());
-        novoSai.setNomeAluno(novaSaidaDTO.getNomeAluno());
-        novoSai.setNomeProfessor(novaSaidaDTO.getNomeProfessor());
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm:ss");
+//        LocalDateTime dataSolicitacao = LocalDateTime.parse(novaSaidaDTO.getDataSolicitacao(), formatter);
+
+
+//        novoSai.setDataSolicitacao(novaSaidaDTO.getDataSolicitacao());
+        Optional<Saida> saidaOptional = repositorioSaida.findById(id);
+        if(saidaOptional.isPresent()) {
+            Saida saida = saidaOptional.get();
+            novoSai.setCodSaida(saida.getCodSaida());
+            novoSai.setDataSolicitacao(saida.getDataSolicitacao());
+            novoSai.setHoraSaida(novaSaidaDTO.getHoraSaida());
+            novoSai.setHoraRetorno(novaSaidaDTO.getHoraRetorno());
+            novoSai.setMotivo(novaSaidaDTO.getMotivo());
+            novoSai.setLocalDestino(novaSaidaDTO.getLocalDestino());
+            novoSai.setStatus(novaSaidaDTO.getStatus());
+//            novoSai.setNomeAluno(novaSaidaDTO.getNomeAluno());
+//            novoSai.setNomeProfessor(novaSaidaDTO.getNomeProfessor());
+        } else {
+            throw new RuntimeException("Saída não existe!");
+        }
+
 
         Aluno aluno_cod = repositorioAluno.findById(novaSaidaDTO.getAluno_cod())
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -188,22 +213,25 @@ public class SaidaController {
                         "Entrega não encontrada!" + novaSaidaDTO.getProfessor_cod()));
 
         novoSai.setAluno(aluno_cod);
+        String alunoNome = aluno_cod.getNome();
+        String alunoSobrenome = aluno_cod.getSobrenome();
+        String nomeAlunoCompleto = alunoNome + " " + alunoSobrenome;
+        novoSai.setNomeAluno(nomeAlunoCompleto);
+        System.out.println("Codigo do aluno: " + aluno_cod);
+
         novoSai.setProfessor(professor_cod);
+        String professorNome = professor_cod.getNome();
+        String professorSobrenome = professor_cod.getSobrenome();
+        String nomeProfessorCompleto = professorNome + " " + professorSobrenome;
+        novoSai.setNomeProfessor(nomeProfessorCompleto);
+        System.out.println("Codigo do professor: " + professor_cod);
 
         try{
-            Optional<Saida> saidaOptional = repositorioSaida.findById(id);
-            if(saidaOptional.isPresent()){
-                Saida saida = saidaOptional.get();
+            Saida atualizada = repositorioSaida.save(novoSai);
 
-                novoSai.setCodSaida(saida.getCodSaida());
-                System.out.println(novoSai.toString());
+            return ResponseEntity.ok(atualizada);
 
-                Saida atualizada = repositorioSaida.save(novoSai);
-
-                return ResponseEntity.ok(atualizada);
-            }else{
-                return ResponseEntity.notFound().build();
-            }
+//            return ResponseEntity.notFound().build();
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

@@ -76,18 +76,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 btnAtualizar.addEventListener("click", () => {
 
+      let selectAluno = document.getElementById("aluno");
+      let selectProfessor = document.getElementById("professor");
+
       let codSaida = Number(document.getElementById("codSaida").value);
       const saidaAtualizada = {
-            dataSolicitacao: document.getElementById("dataSolicitacao").value,
+            // dataSolicitacao: document.getElementById("dataSolicitacao").value,
             horaSaida: document.getElementById("horaSaida").value,
             horaRetorno: document.getElementById("horaRetorno").value,
             motivo: document.getElementById("motivo").value,
             localDestino: document.getElementById("localDestino").value,
             status: document.getElementById("status").value,
-            nomeAluno: document.getElementById("aluno").value,
-            nomeProfessor: document.getElementById("professor").value,
-            aluno_cod: Number(document.getElementById("aluno").value),
-            professor_cod: Number(document.getElementById("professor").value)
+            // nomeAluno: selectAluno.options[selectAluno.selectedIndex].textContent,
+            // nomeProfessor: selectProfessor.options[selectProfessor.selectedIndex].textContent,
+            aluno_cod: Number(selectAluno.value),
+            professor_cod: Number(selectProfessor.value),
       };
 
       fetch(`http://localhost:8081/saida/${codSaida}`, {

@@ -9,6 +9,7 @@ import java.util.List;
 public interface SaidaRepository extends JpaRepository<Saida, Long> {
 
     List<Saida> findByStatusIsNotAndStatusIsNotOrderByStatusAscDataSolicitacaoAsc(String status1, String status2);
+    List<Saida> findByStatusIsNotAndStatusIsNotOrderByDataSolicitacaoDesc(String status1, String status2);
 
 //    List<Saida> findByStatusIsNotAndStatusIsNotOrderByStatusDataSolicitacao(String status, String status1);
 
