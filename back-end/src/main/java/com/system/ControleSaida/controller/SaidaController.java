@@ -7,6 +7,7 @@ import com.system.ControleSaida.model.Saida;
 import com.system.ControleSaida.repository.AlunoRepository;
 import com.system.ControleSaida.repository.ProfessorRepository;
 import com.system.ControleSaida.repository.SaidaRepository;
+import com.system.ControleSaida.util.EstatisticaAlunoLocal;
 import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -238,7 +239,10 @@ public class SaidaController {
         }
     }
 
-
+    @GetMapping("/estatisticas")
+    public List<EstatisticaAlunoLocal> obterEstatisticas() {
+        return repositorioSaida.contarSaidasPorAlunoELocal();
+    }
 
 
 }

@@ -38,6 +38,8 @@ function listar() {
                     <tr>
                         
                         <th class="col-data">Solicitação</th>
+                        <th class="col-saida">Saida</th>
+                        <th class="col-retorno">Retorno</th>
                         <th class="col-motivo">Motivo</th>
                         <th class="col-status">Status</th>
                         <th class="col-local">Destino</th>
@@ -66,6 +68,8 @@ function listar() {
         tabela += `
 			<tr>
 				<td class="col-data">${dataFormatada} ${hora}</td>
+        <td class="col-saida">${saida.horaSaida || "N/A"} </td>
+        <td class="col-retorno">${saida.horaRetorno || "N/A"}</td>
 				<td class="col-motivo">${saida.motivo}</td>
 				<td class="col-status">${saida.status}</td>
 				<td class="col-local">${saida.localDestino}</td>

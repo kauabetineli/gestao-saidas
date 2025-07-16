@@ -309,6 +309,10 @@ button:hover {
 	width: 100px;
 }
 
+.col-saida {
+    width: 10px;
+}
+
 .col-status {
 	width: 140px;
 }
