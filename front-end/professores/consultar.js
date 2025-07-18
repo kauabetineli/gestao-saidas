@@ -37,7 +37,7 @@ btnExcluir.addEventListener("click", () => {
 	.then(response => {
 		if (response.ok) {
 			alert("Professor excluído com sucesso!");
-			window.location.href = "/professor/professor.html";
+			window.location.href = "/professores/professores.html";
 		} else {
 			alert("Erro ao excluir aluno.");
 		}
